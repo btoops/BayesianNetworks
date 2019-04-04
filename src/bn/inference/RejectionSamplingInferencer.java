@@ -19,8 +19,6 @@ public class RejectionSamplingInferencer implements Inferencer{
 		for(bn.core.Value v : X.getDomain()) {
 			counter.set(v, 0);
 		}
-		
-
 		for(int i = 0; i < N; i ++) {
 			x = priorSample(bn);
 			if(x.containsAll(e)) {
@@ -28,8 +26,9 @@ public class RejectionSamplingInferencer implements Inferencer{
 				counter.put(x.get(X), counter.get(x.get(X)) + 1.0);
 			}
 		}
+		System.out.println("counter: " + counter);
 		counter.normalize();
-//		System.out.println("counter: " + counter);
+
 		return counter;
 	}
 	
@@ -57,7 +56,7 @@ public class RejectionSamplingInferencer implements Inferencer{
 			e.put(xi, domain.getElements().get(index));
 			//System.out.println(dist);
 		}
-//		System.out.println(e);
+		//System.out.println(e);
 		
 		return e;
 	}
