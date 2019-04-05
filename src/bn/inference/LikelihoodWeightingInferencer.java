@@ -72,7 +72,7 @@ public class LikelihoodWeightingInferencer {
 			if(e.containsKey(v)) { //if xi is in e
 				x.put(v, e.get(v));
 				//System.out.println("x: " + x);
-				weight = weight * bn.getProbability(bn.getProbability(v, x), x);
+				weight = weight * bn.getProbability(v , x);
 				//System.out.println("weight: " + weight);
 			}else {
 				x.put(v, lwi.randomSample(bn, e).get(v));
